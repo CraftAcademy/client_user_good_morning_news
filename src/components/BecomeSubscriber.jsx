@@ -11,8 +11,8 @@ const BecomeSubscriber = () => {
   const history = useHistory();
   const [failureMessage, setFailureMessage] = useState();
 
-  const submitPayment = async (stripeToken) => {
-    let paymentStatus = await Subscriptions.create(stripeToken);
+  const submitPayment = async (stripeToken, paymentMethod) => {
+    let paymentStatus = await Subscriptions.create(stripeToken, paymentMethod);
 
     if (paymentStatus.success) {
       dispatch({
